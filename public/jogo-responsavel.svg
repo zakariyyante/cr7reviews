@@ -1,0 +1,7 @@
+<svg width="220" height="80" viewBox="0 0 220 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="220" height="80" rx="10" fill="#0F172A"/>
+  <circle cx="28" cy="40" r="12" stroke="#22C55E" stroke-width="3"/>
+  <path d="M22 40L26 44L34 34" stroke="#22C55E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="50" y="36" font-family="Arial" font-size="14" font-weight="800" fill="white">JOGO</text>
+  <text x="50" y="54" font-family="Arial" font-size="14" font-weight="800" fill="#22C55E">RESPONSÁVEL</text>
+</svg>
