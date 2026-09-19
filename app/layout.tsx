@@ -1,23 +1,29 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import TopDisclaimer from "@/components/TopDisclaimer";
 import "./globals.css";
 
-const outfit = Outfit({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-outfit",
+  variable: "--font-inter",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
 });
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "AW-XXXXXXXXXX";
 const CONVERSION_LABEL = process.env.NEXT_PUBLIC_CONVERSION_LABEL ?? "AW-XXXXXXXXXX/YYYYYYYY";
 
 export const metadata: Metadata = {
-  title: "CR7 Reviews | Melhores Sites de Jogos em Portugal 2026",
+  title: "CR7 Reviews | Melhores Plataformas de Jogos Online em Portugal 2026",
   description:
-    "Encontre os melhores sites de jogos em Portugal. Avaliações de especialistas, bónus exclusivos e operadores licenciados pelo SRIJ.",
+    "Descubra a seleção das plataformas mais confiáveis e divertidas para jogadores portugueses. Analisamos e classificamos as opções para sua segurança.",
   metadataBase: new URL("https://cr7reviews.com"),
   icons: {
     icon: [
@@ -30,8 +36,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="pt" className={`${outfit.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col felt-texture">
+    <html lang="pt" className={`${inter.variable} ${montserrat.variable} h-full antialiased`}>
+      <body className="flex min-h-full flex-col bg-[#09090b] font-sans">
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
           strategy="afterInteractive"
@@ -54,7 +60,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             window.gtag_report_conversion = gtag_report_conversion;
           `}
         </Script>
-        <Header />
+        <div className="sticky top-0 z-50">
+          <TopDisclaimer />
+          <Header />
+        </div>
         <main className="flex-1">{children}</main>
         <Footer />
         <Analytics />

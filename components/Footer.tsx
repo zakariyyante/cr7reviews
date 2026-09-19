@@ -5,119 +5,92 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-purple-900/50 bg-black py-16">
-      <div className="container mx-auto px-4">
-        <div className="mb-12 flex flex-col items-center">
-          <Link href="/" className="flex flex-col items-center gap-2">
-            <div className="relative h-14 w-56">
-              <Image src="/logo.svg" alt="CR7 Reviews" fill className="object-contain" />
-            </div>
-          </Link>
+    <footer className="mt-auto border-t border-white/[0.05] bg-[#09090b] py-12 md:py-16">
+      <div className="container mx-auto flex flex-col items-center px-4 text-center">
+        <Link href="/" className="mb-8">
+          <Image
+            src="/logo.png"
+            alt="CR7 Reviews"
+            width={240}
+            height={60}
+            className="h-12 w-auto object-contain opacity-90 md:h-14"
+          />
+        </Link>
+
+        <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-white/[0.05] bg-white/[0.02] px-4 py-2">
+          <span className="font-display text-xs font-bold tracking-widest text-white">18+</span>
+          <span className="h-1 w-1 rounded-full bg-zinc-700" />
+          <span className="text-xs font-medium uppercase tracking-wider text-zinc-400">Jogo Responsável</span>
         </div>
 
-        <div className="mb-12 grid grid-cols-2 gap-10 border-y border-white/5 py-12 md:grid-cols-4">
-          <div className="col-span-2">
-            <h4 className="mb-4 font-black uppercase tracking-widest text-white">Sobre</h4>
-            <p className="max-w-md text-sm leading-relaxed text-slate-400">
-              O cr7reviews.com é um guia independente de reviews de sites de jogos em Portugal. As nossas análises ajudam jogadores a comparar operadores licenciados, bónus e rapidez de pagamento.
-            </p>
-          </div>
-          <div>
-            <h4 className="mb-4 font-black uppercase tracking-widest text-white">Links Rápidos</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/" className="text-sm font-bold uppercase text-slate-400 hover:text-accent">
-                  Início
-                </Link>
-              </li>
-              <li>
-                <Link href="/#brands" className="text-sm font-bold uppercase text-slate-400 hover:text-accent">
-                  Marcas
-                </Link>
-              </li>
-              <li>
-                <Link href="/#guide" className="text-sm font-bold uppercase text-slate-400 hover:text-accent">
-                  Guia
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="text-sm font-bold uppercase text-slate-400 hover:text-accent">
-                  Sobre Nós
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-sm font-bold uppercase text-slate-400 hover:text-accent">
-                  Contacto
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="mb-4 font-black uppercase tracking-widest text-white">Legal</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/privacy" className="text-sm font-bold uppercase text-slate-400 hover:text-accent">
-                  Privacidade
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="text-sm font-bold uppercase text-slate-400 hover:text-accent">
-                  Termos de Serviço
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="https://www.srij.turismodeportugal.pt/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm font-bold uppercase text-slate-400 hover:text-accent"
-                >
-                  SRIJ Portugal
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <p className="mx-auto mb-10 max-w-4xl text-center text-[11px] uppercase leading-relaxed tracking-wider text-slate-500">
-          O cr7reviews.com é um portal de reviews independente. Recebemos comissões de afiliados dos operadores listados. O jogo é proibido a menores de 18 anos. Todos os operadores apresentados são regulados pelo SRIJ — Serviço de Regulação e Inspeção de Jogos.
+        <p className="mx-auto mb-10 max-w-2xl text-sm leading-relaxed text-zinc-500">
+          Aviso: O CR7 Reviews destina-se apenas a maiores de 18 anos. O jogo pode causar dependência. Por favor, jogue de forma responsável.
         </p>
 
-        <div className="mb-8 flex flex-wrap items-center justify-center gap-8 opacity-70">
-          <div className="relative h-10 w-10">
-            <Image src="/18plus.svg" alt="18+" fill className="object-contain" />
-          </div>
+        <nav className="mb-12 flex flex-wrap justify-center gap-x-8 gap-y-4">
+          <Link href="/terms" className="text-xs font-medium uppercase tracking-wider text-zinc-400 hover:text-white">
+            Termos e Condições
+          </Link>
+          <Link href="/privacy" className="text-xs font-medium uppercase tracking-wider text-zinc-400 hover:text-white">
+            Política de Privacidade
+          </Link>
+          <Link href="/jogo-responsavel" className="text-xs font-medium uppercase tracking-wider text-zinc-400 hover:text-white">
+            Jogo Responsável
+          </Link>
+          <Link href="/cookies" className="text-xs font-medium uppercase tracking-wider text-zinc-400 hover:text-white">
+            Política de Cookies
+          </Link>
+        </nav>
+
+        <div className="mb-10 flex flex-wrap items-center justify-center gap-8 md:gap-12">
+          <Image src="/18plus.svg" alt="18+" width={40} height={40} className="h-8 w-auto object-contain md:h-10" />
           <Link
-            href="https://www.srij.turismodeportugal.pt/"
+            href="https://safergamblinguk.org/"
             target="_blank"
             rel="noopener noreferrer"
-            className="relative h-10 w-24"
+            className="opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0"
           >
-            <Image src="/srij.svg" alt="SRIJ" fill className="object-contain" />
-          </Link>
-          <Link href="https://www.icad.pt/" target="_blank" rel="noopener noreferrer" className="relative h-10 w-24">
-            <Image src="/icad.svg" alt="ICAD" fill className="object-contain" />
+            <Image
+              src="/safer-gambling.webp"
+              alt="Safer Gambling Week"
+              width={140}
+              height={79}
+              className="h-8 w-auto object-contain md:h-10"
+            />
           </Link>
           <Link
-            href="https://www.srij.turismodeportugal.pt/pt/jogo-responsavel/o-que-e-o-jogo-responsavel"
+            href="https://www.srij.turismodeportugal.pt/pt"
             target="_blank"
             rel="noopener noreferrer"
-            className="relative h-10 w-28"
+            className="opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0"
           >
-            <Image src="/jogo-responsavel.svg" alt="Jogo Responsável" fill className="object-contain" />
+            <Image
+              src="/srij.webp"
+              alt="SRIJ — Serviço de Regulação e Inspeção de Jogos"
+              width={264}
+              height={144}
+              className="h-8 w-auto object-contain md:h-10"
+            />
           </Link>
           <Link
             href="https://www.icad.pt/"
             target="_blank"
             rel="noopener noreferrer"
-            className="relative h-10 w-24"
+            className="opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0"
           >
-            <Image src="/sicad.svg" alt="SICAD / ICAD" fill className="object-contain" />
+            <Image
+              src="/icad.webp"
+              alt="ICAD"
+              width={486}
+              height={144}
+              className="h-8 w-auto object-contain md:h-10"
+            />
           </Link>
         </div>
 
-        <p className="text-center text-xs text-slate-500">
-          © {currentYear} cr7reviews.com. Todos os direitos reservados.
+        <div className="mb-8 h-px w-full max-w-md bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <p className="text-xs font-medium text-zinc-600">
+          © {currentYear} <span className="text-zinc-400">cr7reviews.com</span>. Todos os direitos reservados.
         </p>
       </div>
     </footer>

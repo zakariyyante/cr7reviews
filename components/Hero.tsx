@@ -1,48 +1,46 @@
 export default function Hero() {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <section className="relative overflow-hidden py-20 md:py-28">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-purple-900/30 to-transparent" />
-      <div className="container relative z-10 mx-auto px-4 text-center">
-        <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-purple-500/30 bg-purple-900/40 px-4 py-2 text-sm font-bold uppercase tracking-widest text-purple-100">
-          <span className="h-2 w-2 rounded-full bg-accent shadow-[0_0_8px_rgba(255,140,0,0.8)]" />
-          O Principal Hub de Reviews de Jogos de Portugal {currentYear}
+    <section className="relative flex min-h-[240px] items-center justify-center overflow-hidden border-b border-white/[0.05] bg-[#09090b] md:min-h-[340px]">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute top-[-30%] left-[-10%] h-[150%] w-[60%] rounded-full bg-emerald-600/20 blur-[120px]" />
+        <div className="absolute right-[-10%] bottom-[-30%] h-[150%] w-[60%] rounded-full bg-red-600/20 blur-[120px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#09090b]/40 to-[#09090b]" />
+      </div>
+
+      <div className="container relative z-10 mx-auto flex flex-col items-center px-4 py-8 text-center md:py-10">
+        <div className="mb-4 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-[#09090b]/50 px-4 py-1.5 shadow-[0_4px_24px_rgba(0,0,0,0.4)] backdrop-blur-md md:mb-5">
+          <div className="flex gap-1.5">
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
+            <span className="h-1.5 w-1.5 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
+          </div>
+          <span className="font-display text-[10px] font-bold uppercase tracking-widest text-zinc-200 md:text-xs">
+            O Teu Ponto de Encontro Gaming
+          </span>
         </div>
 
-        <h1 className="mb-6 text-4xl font-black leading-tight md:text-7xl">
-          Encontre os Melhores <span className="gold-text">Sites de Jogos</span> de Portugal
+        <h1 className="mb-3 max-w-4xl font-display text-2xl font-black leading-tight tracking-tight text-white drop-shadow-lg md:mb-4 md:text-4xl lg:text-5xl">
+          As Melhores Plataformas de Jogos Online em Portugal
         </h1>
-
-        <p className="mx-auto mb-12 max-w-3xl text-lg font-medium text-slate-300 md:text-2xl">
-          Avaliações de especialistas, bónus exclusivos e pagamentos rápidos. O guia independente para jogar com segurança em Portugal.
+        <p className="mx-auto mb-6 max-w-2xl text-sm font-medium leading-relaxed text-zinc-300 drop-shadow md:mb-8 md:text-base">
+          Descubra a seleção das plataformas mais confiáveis e divertidas para jogadores portugueses. Analisamos e classificamos as opções para sua segurança.
         </p>
 
-        <div className="flex flex-wrap justify-center gap-4 md:gap-8">
-          {[
-            {
-              label: "Licenciado",
-              icon: "M12 3l8 4v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V7l8-4z",
-            },
-            {
-              label: "Aprovado por Especialistas",
-              icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z",
-            },
-            {
-              label: "Levantamentos Rápidos",
-              icon: "M13 10V3L4 14h7v7l9-11h-7z",
-            },
-          ].map((badge) => (
-            <div
-              key={badge.label}
-              className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-6 py-3 backdrop-blur-sm"
-            >
-              <svg className="h-6 w-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={badge.icon} />
-              </svg>
-              <span className="font-bold uppercase tracking-wide text-white">{badge.label}</span>
-            </div>
-          ))}
+        <div className="hide-scrollbar w-full overflow-x-auto">
+          <div className="mx-auto flex w-max items-center justify-start gap-2 px-2 pb-2 md:w-auto md:justify-center md:gap-3">
+            {[
+              { label: "100% Legal e Seguro", style: "border-emerald-500/30 bg-emerald-500/10 text-emerald-400" },
+              { label: "Registo Rápido", style: "border-emerald-500/30 bg-emerald-500/10 text-emerald-400" },
+              { label: "Melhores Bónus", style: "border-amber-500/30 bg-amber-500/10 text-amber-400" },
+              { label: "Marcas de Portugal", style: "border-red-500/30 bg-red-500/10 text-red-400" },
+            ].map((chip) => (
+              <div
+                key={chip.label}
+                className={`whitespace-nowrap rounded-xl border px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider backdrop-blur-md transition-transform hover:-translate-y-0.5 md:px-4 md:py-2 md:text-xs ${chip.style}`}
+              >
+                {chip.label}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

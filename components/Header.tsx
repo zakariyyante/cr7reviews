@@ -6,8 +6,6 @@ import { useState } from "react";
 
 const navLinks = [
   { name: "Início", href: "/" },
-  { name: "Marcas", href: "/#brands" },
-  { name: "Guia", href: "/#guide" },
   { name: "Sobre Nós", href: "/about" },
   { name: "Contacto", href: "/contact" },
 ];
@@ -16,36 +14,25 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-purple-900/50 bg-[#0f051d]/90 backdrop-blur-md">
-      <div className="container mx-auto flex h-20 items-center justify-between px-4">
-        <Link href="/" className="flex items-center gap-3">
-          <div className="relative h-11 w-11 overflow-hidden rounded-lg">
-            <Image
-              src="/favicon.svg"
-              alt="CR7 Reviews"
-              fill
-              className="object-contain"
-              priority
-            />
-          </div>
-          <div className="flex flex-col leading-none">
-            <div className="flex items-baseline gap-1">
-              <span className="text-xl font-black italic text-accent">CR7</span>
-              <span className="text-xl font-black text-purple-300">PT</span>
-              <span className="text-xl font-bold text-white">REVIEWS</span>
-            </div>
-            <span className="mt-1 text-[10px] font-bold uppercase tracking-[0.28em] text-slate-400">
-              cr7reviews.com
-            </span>
-          </div>
+    <header className="w-full border-b border-white/[0.05] bg-[#09090b]/80 backdrop-blur-xl">
+      <div className="container mx-auto flex h-[72px] items-center justify-between px-4 md:h-[84px]">
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/logo.png"
+            alt="CR7 Reviews"
+            width={240}
+            height={60}
+            className="h-12 w-auto object-contain md:h-[60px]"
+            priority
+          />
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-6 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm font-bold uppercase tracking-wider text-slate-300 transition-colors hover:text-accent"
+              className="font-display text-sm font-medium uppercase tracking-wide text-zinc-400 transition-colors hover:text-white"
             >
               {link.name}
             </Link>
@@ -53,7 +40,7 @@ export default function Header() {
         </nav>
 
         <button
-          className="p-2 text-white md:hidden"
+          className="p-2 text-zinc-400 transition-colors hover:text-white md:hidden"
           aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
           onClick={() => setIsMenuOpen((open) => !open)}
         >
@@ -61,19 +48,19 @@ export default function Header() {
             {isMenuOpen ? (
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5h16M4 12h16M4 19h16" />
             )}
           </svg>
         </button>
       </div>
 
       {isMenuOpen && (
-        <div className="space-y-4 border-b border-purple-900/50 bg-[#1a0b2e] px-4 py-4 md:hidden">
+        <div className="space-y-4 border-b border-white/[0.05] bg-[#09090b] px-4 py-4 md:hidden">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="block text-lg font-bold uppercase text-slate-300 hover:text-accent"
+              className="block font-display text-lg font-medium uppercase text-zinc-300"
               onClick={() => setIsMenuOpen(false)}
             >
               {link.name}

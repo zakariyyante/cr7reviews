@@ -3,7 +3,10 @@ import { brands } from "./data/brands";
 import Hero from "@/components/Hero";
 import BrandCard from "@/components/BrandCard";
 import ComplianceBar from "@/components/ComplianceBar";
+import WhyChoose from "@/components/WhyChoose";
 import AboutSection from "@/components/AboutSection";
+import Faq from "@/components/Faq";
+import TrustGuide from "@/components/TrustGuide";
 import MobileModal from "@/components/MobileModal";
 
 interface PageProps {
@@ -22,18 +25,9 @@ export default async function Home({ searchParams }: PageProps) {
 
       <Hero />
 
-      <section id="brands" className="py-12 md:py-20">
-        <div className="container mx-auto px-4">
-          <div className="mb-12 text-center">
-            <h2 className="mb-3 text-3xl font-black uppercase italic md:text-5xl">
-              Top Marcas <span className="gold-text">Recomendadas</span>
-            </h2>
-            <p className="text-slate-400">
-              Atualizado semanalmente com as melhores ofertas licenciadas em Portugal.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+      <section id="brands" className="py-6 md:py-10">
+        <div className="container mx-auto max-w-[1000px] px-4">
+          <div className="flex flex-col gap-4">
             {brands.map((brand, index) => (
               <BrandCard
                 key={brand.id}
@@ -47,7 +41,10 @@ export default async function Home({ searchParams }: PageProps) {
       </section>
 
       <ComplianceBar />
+      <WhyChoose />
       <AboutSection />
+      <Faq />
+      <TrustGuide />
     </>
   );
 }
